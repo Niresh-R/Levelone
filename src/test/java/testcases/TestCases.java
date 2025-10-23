@@ -1,5 +1,7 @@
 package testcases;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.qameta.allure.testng.AllureTestNg;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -13,6 +15,8 @@ import utils.jsonUtills.JsonUtils;
 import utils.responceValidator.ResponseValidator;
 
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
+@Feature("API Tests")
+@Story("Create User API")
 public class TestCases {
 
      UserClient client = new UserClient("https://api.restful-api.dev");

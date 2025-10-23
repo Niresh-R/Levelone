@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the product"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the product"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the product was last updated"
+    },
+    "data": {
+      "type": ["object", "null"],
+      "description": "Detailed specifications of the product, can be null"
+    }
+  },
+  "required": ["id", "name", "updatedAt", "data"]
+}

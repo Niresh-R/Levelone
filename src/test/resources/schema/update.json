@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the product"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the product"
+    },
+    "data": {
+      "type": "object",
+      "description": "Detailed specifications of the product",
+      "properties": {
+        "year": {
+          "type": "integer",
+          "description": "Year of release"
+        },
+        "price": {
+          "type": "number",
+          "description": "Price of the product in USD"
+        },
+        "CPU model": {
+          "type": "string",
+          "description": "Processor model used in the product"
+        },
+        "Hard disk size": {
+          "type": "string",
+          "description": "Storage capacity of the hard disk"
+        },
+        "color": {
+          "type": "string",
+          "description": "Color of the product"
+        }
+      },
+      "required": ["year", "price", "CPU model", "Hard disk size", "color"]
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the product was last updated"
+    }
+  },
+  "required": ["id", "name", "data", "updatedAt"]
+}

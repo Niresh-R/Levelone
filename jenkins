@@ -1,20 +1,39 @@
 pipeline {
     agent any
+
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Niresh-R/Levelone.git'
+                // Pull code from your repo
+                checkout scm
             }
         }
-        stage('Build & Test') {
+
+        stage('Build') {
             steps {
-                bat 'mvn clean test'
+                echo 'Building the project...'
+                // Example for a Maven project
+                sh 'mvn clean compile'
             }
         }
-        stage('Allure Report') {
+
+        stage('Test') {
             steps {
-                allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
+                echo 'Running tests...'
+                sh 'mvn test'
             }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
+        }
+
+    }
+
+    post {
+        always {
+            echo 'Pipeline finished.'
         }
     }
 }
